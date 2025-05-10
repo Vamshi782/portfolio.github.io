@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Personal Website</title>
+    <title>Vamshi Krishna Korutla</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>V</text></svg>">
     <style>
         :root {
             --primary-color: #3498db;
             --secondary-color: #2ecc71;
-            --background-color: #f4f4f4;
-            --text-color: #333;
+            --background-color: #f4f4f8;
+            --text-color: #2c3e50;
+            --card-background: #ffffff;
+            --accent-color: #9b59b6;
         }
 
         * {
@@ -19,108 +25,321 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--background-color);
+            scroll-behavior: smooth;
         }
 
         .container {
-            width: 80%;
+            width: 85%;
+            max-width: 1200px;
             margin: 0 auto;
-            overflow: hidden;
             padding: 20px;
         }
 
+        /* Header Styles */
         header {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: white;
+            padding: 100px 0 50px;
             text-align: center;
-            padding: 1rem;
+            position: relative;
+            overflow: hidden;
         }
 
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.1);
+            transform: skewY(-6deg);
+            transform-origin: top left;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-content h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 300;
+            animation: fadeInUp 1s ease;
+        }
+
+        .profile-pic {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin: 30px 0;
+            animation: bounce 1.5s infinite alternate;
+        }
+
+        /* Navigation */
         nav {
-            background-color: #333;
-            color: white;
-            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         nav ul {
-            list-style: none;
             display: flex;
             justify-content: center;
+            list-style: none;
         }
 
         nav ul li {
-            margin: 0 15px;
+            margin: 0 20px;
         }
 
         nav ul li a {
             color: white;
             text-decoration: none;
+            font-weight: 600;
             transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: var(--secondary-color);
-        }
-
-        .section {
-            background: white;
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .project-card {
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 5px;
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: scale(1.05);
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem;
             position: relative;
-            bottom: 0;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
             width: 100%;
         }
 
+        /* Sections */
+        .section {
+            background: var(--card-background);
+            margin: 40px 0;
+            padding: 50px 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+
+        .section h2 {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .section h2 i {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        /* Skills and Project Styles */
+        .skills-grid, .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .skill-item, .project-item {
+            background: var(--background-color);
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .skill-item:hover, .project-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .skill-item img, .project-item img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .project-item .project-details {
+            margin-top: 10px;
+        }
+
+        /* Experience Timeline */
+        .experience-timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 30px;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 3px solid var(--background-color);
+        }
+
+        .experience-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .experience-header h3 {
+            margin-right: 15px;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .company {
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .company img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .duration {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .experience-details {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: #555;
+        }
+
+        .experience-details li {
+            margin-bottom: 10px;
+        }
+
+        /* Contact Icons */
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-icons a {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-icons a:hover {
+            color: var(--accent-color);
+            transform: scale(1.2);
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .container {
                 width: 95%;
             }
 
-            nav ul {
-                flex-direction: column;
-                align-items: center;
+            .hero-content h1 {
+                font-size: 2.5rem;
             }
 
-            nav ul li {
-                margin: 10px 0;
+            .experience-timeline {
+                padding-left: 15px;
             }
+
+            .experience-item {
+                padding-left: 15px;
+            }
+
+            .experience-item::before {
+                left: -22px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-20px); }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Your Name</h1>
-            <p>Web Developer | Designer | Creative Thinker</p>
+        <div class="container hero-content">
+            <img src="/api/placeholder/250/250" alt="Vamshi Krishna Korutla" class="profile-pic">
+            <h1>Vamshi Krishna Korutla</h1>
+            <h2>Business Intelligence | AWS Solutions Architect | Data Analytics Professional</h2>
         </div>
     </header>
 
@@ -128,111 +347,93 @@
         <ul>
             <li><a href="#about" class="nav-link">About</a></li>
             <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#leadership" class="nav-link">Leadership</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
     </nav>
 
     <main class="container">
         <section id="about" class="section">
-            <h2>About Me</h2>
-            <p>Hello! I'm a passionate developer with expertise in web technologies. I love creating innovative solutions and learning new technologies.</p>
+            <h2><i class="fas fa-user"></i> About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a passionate data professional driven to transform complex data into actionable insights that drive business growth. With expertise in predictive modeling, data visualization, and cloud technologies, I specialize in delivering strategic solutions that empower organizations to make data-driven decisions.</p>
+                    <br>
+                    <p>Based in Portland, ME <i class="fas fa-map-marker-alt"></i>, I am committed to leveraging advanced analytics and AWS cloud solutions to unlock new opportunities and drive organizational success.</p>
+                </div>
+            </div>
         </section>
 
         <section id="projects" class="section">
-            <h2>My Projects</h2>
-            <div class="projects" id="projectsContainer">
-                <!-- Project cards will be dynamically added here -->
+            <h2><i class="fas fa-project-diagram"></i> Recent Projects</h2>
+            <div class="projects-grid" id="projectsContainer">
+                <!-- Projects will be dynamically added here -->
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <h2><i class="fas fa-tools"></i> Skills & Technologies</h2>
+            <div class="skills-grid" id="skillsContainer">
+                <!-- Skills will be dynamically added here -->
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            <div class="experience-timeline" id="experienceContainer">
+                <!-- Experience will be dynamically added here -->
+            </div>
+        </section>
+
+        <section id="leadership" class="section">
+            <h2><i class="fas fa-users"></i> Leadership & Engagement</h2>
+            <div class="leadership-content">
+                <div class="leadership-item">
+                    <div class="leadership-header">
+                        <h3>Manager & Event Lead</h3>
+                        <span class="company">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/northeastern/northeastern-original.svg" alt="Northeastern University">
+                            Namasthe Club, Northeastern University
+                        </span>
+                        <span class="duration">Sep 2024 – Present</span>
+                    </div>
+                    <ul class="leadership-details">
+                        <li>Led the planning and execution of large-scale community events, fostering intercultural exchange and campus-wide engagement</li>
+                        <li>Collaborated with marketing, student affairs, and cultural departments to drive inclusive promotion, streamline logistics, and ensure event success</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section id="contact" class="section">
-            <h2>Contact Me</h2>
-<!--             <form id="contactForm">
-                <input type="text" id="name" placeholder="Your Name" required>
-                <input type="email" id="email" placeholder="Your Email" required>
-                <textarea id="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form> -->
-            <a href="mailto:korutla.v@northeastern.edu">Ping me a Hi!</a>
+            <h2><i class="fas fa-envelope"></i> Get in Touch</h2>
+            <p class="contact-intro" style="text-align: center; margin-bottom: 20px;">
+                Interested in collaboration or have a project in mind? Feel free to send me a message!
+            </p>
+            <div class="contact-icons">
+                <a href="https://www.linkedin.com/in/vamshi-krishna-korutla/" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:korutla.v@northeastern.edu" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.instagram.com/k_v_k_782/" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/Vamshi782?tab=repositories" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Your Name. All Rights Reserved.</p>
-        <div class="social-links">
-            <a href="#" target="_blank">GitHub</a>
-            <a href="#" target="_blank">LinkedIn</a>
-            <a href="#" target="_blank">Twitter</a>
-        </div>
-    </footer>
-
     <script>
-        // Smooth scrolling for navigation
-        document.querySelectorAll('.nav-link').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Dynamic Projects Section
+        // Projects Data
         const projectsData = [
             {
-                title: "Project 1",
-                description: "A web application that does something awesome.",
-                technologies: ["HTML", "CSS", "JavaScript"]
-            },
-            {
-                title: "Project 2",
-                description: "An innovative solution to a complex problem.",
-                technologies: ["React", "Node.js", "MongoDB"]
-            },
-            {
-                title: "Project 3",
-                description: "A fun and interactive project showcasing creativity.",
-                technologies: ["Python", "Django", "REST API"]
-            }
-        ];
-
-        const projectsContainer = document.getElementById('projectsContainer');
-
-        projectsData.forEach(project => {
-            const projectCard = document.createElement('div');
-            projectCard.classList.add('project-card');
-            
-            projectCard.innerHTML = `
-                <h3>${project.title}</h3>
-                <p>${project.description}</p>
-                <div class="technologies">
-                    ${project.technologies.map(tech => `<span>${tech}</span>`).join(', ')}
-                </div>
-            `;
-            
-            projectsContainer.appendChild(projectCard);
-        });
-
-        // Contact Form (Note: This is a client-side only example)
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // In a real-world scenario, you'd send this to a backend service
-            alert(`Thank you for your message, ${name}! We'll get back to you soon.`);
-            
-            // Reset form
-            contactForm.reset();
-        });
-    </script>
-</body>
-</html>
+                title: "Hospital Workflow Optimization Dashboard",
+                description: "Analyzed 10,000+ hospital records, reducing wait times by 20%",
+                tools: ["Excel", "PowerPoint"],
+                icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/hospital/hospital-
