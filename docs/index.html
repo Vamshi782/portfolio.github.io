@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;><text y=&quot;0.9em&quot; font-size=&quot;45&quot;>VK</text></svg>">  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;><text y=&quot;0.9em&quot; font-size=&quot;45&quot;>VK</text></svg>">  
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <style>
         :root {
             --primary-color: #2d46b9;
@@ -154,7 +155,7 @@
         }
 
         /* Hero Section */
-        .hero {
+   .hero {
             height: 100vh;
             display: flex;
             align-items: center;
@@ -1376,49 +1377,250 @@
             margin: 0 auto;
         }
 
-        /* Responsive Styles */
-        /* Services Section */
-        .services-section {
-            background: linear-gradient(135deg, #f9fcff 0%, #f5f9ff 100%);
+        /* Skills Section with Icons */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        .services-section::before,
-        .services-section::after {
+        .skill-card::before {
             content: '';
             position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
             background: var(--gradient-primary);
-            opacity: 0.05;
-            z-index: 0;
+            transition: all 0.3s ease;
+            z-index: -1;
         }
 
-        .services-section::before {
-            top: -150px;
-            right: -150px;
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .services-section::after {
-            bottom: -150px;
-            left: -150px;
+        .skill-card:hover::before {
+            height: 100%;
+            opacity: 0.1;
         }
 
-        .services-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 40px;
+        .skill-icon {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: scale(1.2);
+        }
+
+        .skill-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark-color);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover .skill-name {
+            color: var(--primary-color);
+        }
+
+        .skills-category {
+            margin-bottom: 40px;
+        }
+
+        .category-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
             position: relative;
-            z-index: 2;
+            padding-left: 45px;
         }
 
-        .service-item {
-            background-color: white;
-            border-radius: 20px;
-            padding: 40px 30px;
-            box-shadow:
+        .category-title i {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 20px;
+            background: var(--primary-color);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .category-title:hover i {
+            background: var(--gradient-primary);
+            transform: translateY(-50%) rotate(360deg);
+        }
+
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+
+            .hero-buttons, .social-links {
+                justify-content: center;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-image {
+                margin-bottom: 50px;
+            }
+
+            .timeline-column {
+                width: 100%;
+            }
+
+            .timeline-column:first-child {
+                margin-bottom: 50px;
+            }
+
+            .skills-container {
+                flex-direction: column;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .contact-info {
+                margin-bottom: 50px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-item {
+                margin: 15px 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+                z-index: 1001;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .hero {
+                height: auto;
+                padding: 120px 0 80px;
+            }
+
+            .hero-heading {
+                font-size: 36px;
+            }
+
+            .hero-subheading {
+                font-size: 20px;
+            }
+
+            .hero-image img {
+                width: 300px;
+                height: 300px;
+            }
+
+            .section {
+                padding: 70px 0;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+                gap: 20px;
+            }
+            
+            .skill-card {
+                padding: 20px 15px;
+            }
+            
+            .skill-icon {
+                font-size: 28px;
+            }
+            
+            .skill-name {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1443,16 +1645,14 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+  <section id="home" class="hero">
         <div class="container hero-content">
             <div class="hero-text">
                 <span class="hero-name">Hello, I'm</span>
                 <h1 class="hero-heading">Vamshi Krishna Korutla</h1>
                 <h2 class="hero-subheading">Data Analytics Professional</h2>
                 <p class="hero-description">
-                    Certified Google Data Analytics Professional and AWS Solutions Architect with a strong passion for leveraging data analytics
-                    and AI to drive innovation in diverse industries. Skilled in building and interpreting data models, creating interactive
-                    dashboards, and applying advanced statistical methods to support decision-making.
+                   Certified Google Data Analytics Professional and AWS Solutions Architect who loves digging into data to help spark new ideas. I enjoy building data models, creating simple dashboards, and using stats to support better decisions. Always happy to chat about data and learn from others!
                 </p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn">View Projects</a>
@@ -1465,20 +1665,21 @@
                     <a href="tel:+12074086160" class="social-link">
                         <i class="fas fa-phone"></i>
                     </a>
-                    <a href="https://linkedin.com/in/" target="_blank" class="social-link">
+                    <a href="https://linkedin.com/in/vamshi-krishna-korutla-b3a292305" target="_blank" class="social-link">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://github.com/" target="_blank" class="social-link">
+                    <a href="https://github.com/Vamshi782" target="_blank" class="social-link">
                         <i class="fab fa-github"></i>
                     </a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="/api/placeholder/400/400" alt="Vamshi Krishna Korutla">
+                <img src="\assets\boston image vamshi.jpg" alt="Vamshi Krishna Korutla">
             </div>
         </div>
         <div class="hero-bg-shape"></div>
     </section>
+
 
     <!-- About Section -->
     <section id="about" class="section">
@@ -1489,7 +1690,7 @@
             </div>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="/api/placeholder/500/500" alt="About Vamshi">
+                    <img src="assets\ds_logo.svg " alt="About Vamshi">
                     <div class="experience-badge">
                         <span>2+</span>
                         <span>Years</span>
@@ -1498,29 +1699,9 @@
                 <div class="about-text">
                     <h3>Data Analytics Professional & AWS Solutions Architect</h3>
                     <p>
-                        I am a passionate data analytics professional with a Master's degree in Data Analytics from Northeastern University. With experience in healthcare analytics and environmental data analysis, I specialize in transforming complex datasets into actionable insights that drive strategic decision-making.
-                    </p>
+Hey! I’m a data analytics enthusiast with a Master’s in Data Analytics from Northeastern University. I’ve been lucky enough to dive into healthcare analytics and business data projects, where I get a real kick out of handling messy datasets and turning them into insights that actually make a difference for big decisions.                    </p>
                     <p>
-                        My expertise spans predictive modeling, data visualization, and statistical analysis, with a particular focus on healthcare and environmental applications. I'm skilled at building interactive dashboards and developing data-driven solutions that enhance operational efficiency and inform policy decisions.
-                    </p>
-                    <ul class="info-list">
-                        <li class="info-item">
-                            <span class="info-title">Name:</span>
-                            <span>Vamshi Krishna Korutla</span>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-title">Email:</span>
-                            <span>korutla.v@northeastern.edu</span>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-title">Phone:</span>
-                            <span>(207) 408-6160</span>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-title">Location:</span>
-                            <span>Portland, ME (Open to Relocate)</span>
-                        </li>
-                    </ul>
+I’m particularly passionate about predictive modeling, data visualization, and statistical analysis, with a focus on healthcare and environmental projects. Whether it’s designing interactive dashboards or crafting data-driven solutions, I thrive on creating tools that boost efficiency and support impactful policy decisions. Always eager to connect and share ideas—let me know how I can help!                    </p>
                     <a href="#contact" class="btn">Contact Me</a>
                 </div>
             </div>
@@ -1588,6 +1769,7 @@
                         <h5 class="timeline-subtitle">Kakatiya University, Telangana, India</h5>
                         <p class="timeline-description">
                             • Analyzed over 10,000 biodiversity records using R to understand climate-driven species shifts.<br>
+                            • Developed geospatial models with Python to map habitat
                             • Developed geospatial models with Python to map habitat vulnerability, aiding conservation planning efforts.
                         </p>
                     </div>
@@ -1597,131 +1779,115 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section">
+    <section id="skills" class="section skills-section">
         <div class="container">
             <div class="section-title">
                 <h2>My Skills</h2>
                 <p>Technical expertise and professional competencies</p>
             </div>
-            <div class="skills-container">
-                <div class="skills-column">
-                    <h3 class="skills-heading">
-                        <i class="fas fa-chart-line"></i>
-                        Analytics & Tools
-                    </h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">Python</span>
-                            <span class="skill-percentage">90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%;"></div>
-                        </div>
+            
+            <div class="skills-category" data-aos="fade-up">
+                <h3 class="category-title"><i class="fas fa-laptop-code"></i>Analytics & Tools</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <i class="fab fa-python skill-icon"></i>
+                        <span class="skill-name">Python</span>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">SQL</span>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%;"></div>
-                        </div>
+                    <div class="skill-card">
+                        <i class="fas fa-database skill-icon"></i>
+                        <span class="skill-name">SQL</span>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">R</span>
-                            <span class="skill-percentage">80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%;"></div>
-                        </div>
+                    <div class="skill-card">
+                        <i class="fab fa-r-project skill-icon"></i>
+                        <span class="skill-name">R</span>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">Tableau</span>
-                            <span class="skill-percentage">90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%;"></div>
-                        </div>
+                    <div class="skill-card">
+                        <i class="fas fa-chart-bar skill-icon"></i>
+                        <span class="skill-name">Tableau</span>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">Power BI</span>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%;"></div>
-                        </div>
+                    <div class="skill-card">
+                        <i class="fas fa-chart-pie skill-icon"></i>
+                        <span class="skill-name">Power BI</span>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">AWS</span>
-                            <span class="skill-percentage">80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%;"></div>
-                        </div>
+                    <div class="skill-card">
+                        <i class="fab fa-aws skill-icon"></i>
+                        <span class="skill-name">AWS</span>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-table skill-icon"></i>
+                        <span class="skill-name">Excel</span>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-git-alt skill-icon"></i>
+                        <span class="skill-name">Git</span>
                     </div>
                 </div>
-                <div class="skills-column">
-                    <h3 class="skills-heading">
-                        <i class="fas fa-cogs"></i>
-                        Methods & Business
-                    </h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">Predictive Modeling</span>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%;"></div>
-                        </div>
+            </div>
+            
+            <div class="skills-category" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="category-title"><i class="fas fa-cogs"></i>Methods & Techniques</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <i class="fas fa-brain skill-icon"></i>
+                        <span class="skill-name">Predictive Modeling</span>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">Data Visualization</span>
-                            <span class="skill-percentage">90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%;"></div>
-                        </div>
+                    <div class="skill-card">
+                        <i class="fas fa-chart-line skill-icon"></i>
+                        <span class="skill-name">Data Visualization</span>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">Statistical Analysis</span>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%;"></div>
-                        </div>
+                    <div class="skill-card">
+                        <i class="fas fa-calculator skill-icon"></i>
+                        <span class="skill-name">Statistical Analysis</span>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">ETL Optimization</span>
-                            <span class="skill-percentage">80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%;"></div>
-                        </div>
+                    <div class="skill-card">
+                        <i class="fas fa-sitemap skill-icon"></i>
+                        <span class="skill-name">ETL Optimization</span>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">Stakeholder Communication</span>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%;"></div>
-                        </div>
+                    <div class="skill-card">
+                        <i class="fas fa-search skill-icon"></i>
+                        <span class="skill-name">Data Mining</span>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">Project Coordination</span>
-                            <span class="skill-percentage">80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%;"></div>
-                        </div>
+                    <div class="skill-card">
+                        <i class="fas fa-robot skill-icon"></i>
+                        <span class="skill-name">Machine Learning</span>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-database skill-icon"></i>
+                        <span class="skill-name">Data Modeling</span>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-project-diagram skill-icon"></i>
+                        <span class="skill-name">Data Pipeline</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skills-category" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="category-title"><i class="fas fa-briefcase"></i>Business Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <i class="fas fa-comments skill-icon"></i>
+                        <span class="skill-name">Stakeholder Communication</span>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-tasks skill-icon"></i>
+                        <span class="skill-name">Project Coordination</span>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-users skill-icon"></i>
+                        <span class="skill-name">Team Collaboration</span>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-file-alt skill-icon"></i>
+                        <span class="skill-name">Reporting</span>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-bullseye skill-icon"></i>
+                        <span class="skill-name">Strategic Planning</span>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-handshake skill-icon"></i>
+                        <span class="skill-name">Client Management</span>
                     </div>
                 </div>
             </div>
@@ -1738,7 +1904,7 @@
             <div class="projects-container">
                 <div class="project-item">
                     <div class="project-image">
-                        <img src="/api/placeholder/400/200" alt="Hospital Workflow Optimization Dashboard">
+                        <img src="assets\hospital.svg" alt="Hospital Workflow Optimization Dashboard">
                     </div>
                     <div class="project-info">
                         <div class="project-category">
@@ -1759,7 +1925,7 @@
                 </div>
                 <div class="project-item">
                     <div class="project-image">
-                        <img src="/api/placeholder/400/200" alt="Tata Business Insights Dashboard">
+                        <img src="assets\business.svg" alt="Tata Business Insights Dashboard">
                     </div>
                     <div class="project-info">
                         <div class="project-category">
@@ -1780,13 +1946,13 @@
                 </div>
                 <div class="project-item">
                     <div class="project-image">
-                        <img src="/api/placeholder/400/200" alt="Accenture Analytics Simulation">
+                        <img src="/assets/analytics.svg" alt="Accenture Analytics Simulation">
                     </div>
                     <div class="project-info">
                         <div class="project-category">
                             <i class="fas fa-comments"></i> Social Media Analytics
                         </div>
-                        <h3 class="project-title">Accenture Analytics Simulation</h3>
+                        <h3 class="project-title">Accenture Data Analytics</h3>
                         <p class="project-description">
                             Analyzed social media engagement patterns from multi-source data, informing strategic direction and market positioning. Generated visual reports to communicate findings to key stakeholders.
                         </p>
@@ -1801,13 +1967,13 @@
                 </div>
                 <div class="project-item">
                     <div class="project-image">
-                        <img src="/api/placeholder/400/200" alt="School Absenteeism Insights">
+                        <img src="/assets/school2.svg" alt="School Absenteeism Insights">
                     </div>
                     <div class="project-info">
                         <div class="project-category">
                             <i class="fas fa-school"></i> Education Analytics
                         </div>
-                        <h3 class="project-title">School Absenteeism Insights</h3>
+                        <h3 class="project-title">School Absenteeism Analysis</h3>
                         <p class="project-description">
                             Created a dashboard to analyze correlations between student attendance and academic performance. Developed strategies to improve attendance based on demographic data and student needs.
                         </p>
@@ -1833,8 +1999,9 @@
             </div>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3 class="contact-info-heading">Let's Connect</h3>
-                    <p class="contact-info-description">
+ <div class="hero-buttons">
+                     <a href="mailto:korutla.v@northeastern.edu" class="btn" style="background-color: rgb(255, 255, 255); color: var(--primary-color);">Let's Connect!!</a>
+                </div>                    <p class="contact-info-description">
                         Whether you have a project in mind, job opportunity, or just want to say hello, I'd love to hear from you. Feel free to reach out through any of the channels below or send me a message using the form.
                     </p>
                     <ul class="contact-list">
@@ -1853,7 +2020,7 @@
                             </div>
                             <div class="contact-text">
                                 <span class="contact-title">Phone</span>
-                                <span>(207) 408-6160</span>
+                                <span>+1 (207) 408-6160</span>
                             </div>
                         </li>
                         <li class="contact-item">
@@ -1862,39 +2029,28 @@
                             </div>
                             <div class="contact-text">
                                 <span class="contact-title">Location</span>
-                                <span>Portland, ME (Open to Relocate)</span>
-                            </div>
-                        </li>
-                        <li class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fab fa-linkedin-in"></i>
-                            </div>
-                            <div class="contact-text">
-                                <span class="contact-title">LinkedIn</span>
-                                <span><a href="https://linkedin.com/in/" target="_blank" style="color: inherit; text-decoration: none;">Connect with me</a></span>
+                                <span>Portland, ME </span>
                             </div>
                         </li>
                     </ul>
+                    <div class="contact-social">
+                        <a href="mailto:korutla.v@northeastern.edu" class="contact-social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:+12074086160" class="contact-social-link">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/vamshi-krishna-korutla-b3a292305" target="_blank" class="contact-social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/Vamshi782" target="_blank" class="contact-social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.instagram.com/k_v_k_782/" target="_blank" class="contact-social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
                 </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" id="name" class="form-control" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" id="email" class="form-control" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject" class="form-label">Subject</label>
-                        <input type="text" id="subject" class="form-control" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea id="message" class="form-control" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
             </div>
         </div>
     </section>
@@ -1910,11 +2066,14 @@
                 <a href="tel:+12074086160" class="footer-social-link">
                     <i class="fas fa-phone"></i>
                 </a>
-                <a href="https://linkedin.com/in/" target="_blank" class="footer-social-link">
+                <a href="https://linkedin.com/in/vamshi-krishna-korutla-b3a292305" target="_blank" class="footer-social-link">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="https://github.com/" target="_blank" class="footer-social-link">
+                <a href="https://github.com/Vamshi782" target="_blank" class="footer-social-link">
                     <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/k_v_k_782/" target="_blank" class="footer-social-link">
+                    <i class="fab fa-instagram"></i>
                 </a>
             </div>
             <div class="footer-nav">
@@ -1931,7 +2090,6 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script>
         // Navigation
         const menuToggle = document.querySelector('.menu-toggle');
@@ -1976,32 +2134,59 @@
             });
         });
 
-        // Form submission
-        const contactForm = document.querySelector('.contact-form');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // This would typically submit form data to a server
-            alert('Thank you for your message! I will get back to you soon.');
-            contactForm.reset();
-        });
-
-        // Skill animation on scroll
-        const skillSection = document.querySelector('#skills');
-        const skillBars = document.querySelectorAll('.skill-progress');
-
-        function showSkills() {
-            skillBars.forEach(skill => {
-                const skillPosition = skill.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (skillPosition < screenPosition) {
-                    const width = skill.dataset.width;
-                    skill.style.width = skill.parentElement.dataset.width;
-                }
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 500,
+                easing: 'ease-in-out',
+                once: true,
+                mirror: false
             });
-        }
-
-        window.addEventListener('scroll', showSkills);
+            
+            // Animate skill cards
+            const animateSkillCards = () => {
+                const cards = document.querySelectorAll('.skill-card');
+                cards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('animate');
+                    }, 100 * index);
+                });
+            };
+            
+            // Call animations when skills section is in viewport
+            const skillsSection = document.querySelector('#skills');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateSkillCards();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            observer.observe(skillsSection);
+            
+            // Counter animation
+            const counterElements = document.querySelectorAll('.counter');
+            counterElements.forEach(counter => {
+                const target = +counter.innerText;
+                const duration = 2000;
+                const increment = target / duration * 10;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.innerText = Math.ceil(current);
+                        setTimeout(updateCounter, 10);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                
+                updateCounter();
+            });
+        });
     </script>
 </body>
 </html>
