@@ -664,7 +664,57 @@
             font-size: 16px;
             line-height: 1.7;
         }
+/* Coursework Link Styling */
+        .coursework-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background: var(--gradient-primary);
+            color: white !important;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(45, 70, 185, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
 
+        .coursework-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--secondary-color);
+            transition: all 0.4s ease;
+            z-index: -1;
+            border-radius: 25px;
+        }
+
+        .coursework-link:hover::before {
+            width: 100%;
+        }
+
+        .coursework-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(45, 70, 185, 0.4);
+            color: white !important;
+        }
+
+        .coursework-link i {
+            margin-right: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .coursework-link:hover i {
+            transform: scale(1.2);
+        }
         /* Skills Section */
         .skills-section {
             background: linear-gradient(135deg, #f5f8ff 0%, #e9f2ff 100%);
@@ -1194,7 +1244,18 @@
             background: var(--gradient-primary);
             border-radius: 20px 20px 0 0;
         }
+/* Let's Connect Button Fix */
+        .contact-info .hero-buttons .btn {
+            background-color: white !important;
+            color: var(--primary-color) !important;
+            border: 2px solid var(--primary-color);
+        }
 
+        .contact-info .hero-buttons .btn:hover {
+            background: var(--gradient-primary) !important;
+            color: white !important;
+            border-color: transparent;
+        }
         .form-group {
             margin-bottom: 25px;
             position: relative;
@@ -1653,9 +1714,9 @@
             <div class="hero-text">
                 <span class="hero-name">Hello, I'm</span>
                 <h1 class="hero-heading">Vamshi Krishna Korutla</h1>
-                <h2 class="hero-subheading">Data Analytics Professional</h2>
+                <h2 class="hero-subheading">Data Enthusiast</h2>
                 <p class="hero-description">
-                   Certified Google Data Analytics Professional and AWS Solutions Architect who loves digging into data to help spark new ideas. I enjoy building data models, creating simple dashboards, and using stats to support better decisions. Always happy to chat about data and learn from others!
+                   I'm a certified Google Data Analytics Professional and AWS Solutions Architect who loves digging into data to help spark new ideas. I enjoy building data models, creating wonderful dashboards, and using stats to support better decisions. Always happy to chat about data and learn from others!
                 </p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn">View Projects</a>
@@ -1700,7 +1761,7 @@
                     </div>
                 </div>
                 <div class="about-text">
-                    <h3>Data Analytics Professional & AWS Solutions Architect</h3>
+                    <h3>Data and I? We’re in a Committed Relationship.</h3>
                     <p>
 Hey! I’m a data analytics enthusiast with a Master’s in Data Analytics from Northeastern University. I’ve been lucky enough to dive into healthcare analytics and business data projects, where I get a real kick out of handling messy datasets and turning them into insights that actually make a difference for big decisions.                    </p>
                     <p>
@@ -1730,7 +1791,10 @@ I’m particularly passionate about predictive modeling, data visualization, and
                         <h5 class="timeline-subtitle">Northeastern University, Portland, ME</h5>
                         <p class="timeline-description">
                             GPA: 3.8/4.0<br>
-                            Relevant coursework: Enterprise Analytics, Business Intelligence, Applied Database Systems, and Data Communication.
+                            <a href="coursework.html" class="coursework-link" target="_blank">
+                                <i class="fas fa-book-open"></i>
+                                View Detailed Coursework
+                            </a>
                         </p>
                     </div>
                     <div class="timeline-item">
@@ -1748,6 +1812,16 @@ I’m particularly passionate about predictive modeling, data visualization, and
                         <i class="fas fa-briefcase"></i>
                         Experience
                     </h3>
+                    <div class="timeline-item">
+    <span class="timeline-date"> Present</span>
+    <h4 class="timeline-title">Process Development Analyst – Upstream</h4>
+    <h5 class="timeline-subtitle">Solid Biosciences Inc., Boston, MA</h5>
+    <p class="timeline-description">
+        • Engineered time series data pipelines to analyze bioreactor performance, applying feature extraction and signal processing to optimize cell growth and vector production.<br>
+        • Built automated dashboards and visualizations using Python to track upstream process KPIs, enabling cross-functional teams to make data-driven decisions.
+    </p>
+</div>
+
                     <div class="timeline-item">
                         <span class="timeline-date">Mar 2024 – Aug 2024</span>
                         <h4 class="timeline-title">Data Analyst</h4>
@@ -1772,8 +1846,8 @@ I’m particularly passionate about predictive modeling, data visualization, and
                         <h5 class="timeline-subtitle">Kakatiya University, Telangana, India</h5>
                         <p class="timeline-description">
                             • Analyzed over 10,000 biodiversity records using R to understand climate-driven species shifts.<br>
-                            • Developed geospatial models with Python to map habitat
-                            • Developed geospatial models with Python to map habitat vulnerability, aiding conservation planning efforts.
+                            • Developed interactive dashboards linking environmental patterns to disease outbreaks, supporting evidence-based policy planning.<br>
+                            • Collaborated with cross-functional teams to present findings, enhancing data-driven decision-making in environmental health.
                         </p>
                     </div>
                 </div>
@@ -1792,9 +1866,6 @@ I’m particularly passionate about predictive modeling, data visualization, and
             <div class="skills-category" data-aos="fade-up">
                 <h3 class="category-title"><i class="fas fa-laptop-code"></i>Analytics & Tools</h3>
                 <div class="skills-grid">
-
-
-                    
                     <div class="skill-card">
                         <i class="fab fa-python skill-icon"></i>
                         <span class="skill-name">Python</span>
@@ -1912,31 +1983,6 @@ I’m particularly passionate about predictive modeling, data visualization, and
                 <p>Selected projects showcasing my data analytics expertise</p>
             </div>
             <div class="projects-container">
-
-
-
-             <div class="project-item">
-    <div class="project-image">
-        <img src="https://i.postimg.cc/28VQZtfP/Diabetes-share.jpg" alt="Diabetes Prediction Model">
-    </div>
-    <div class="project-info">
-        <div class="project-category">
-            <i class="fas fa-heartbeat"></i> Healthcare Analytics
-        </div>
-        <h3 class="project-title">Diabetes Prediction Using Machine Learning</h3>
-        <p class="project-description">
-            Developed a classification model to predict diabetes risk based on patient health indicators. Integrated data visualization and model interpretability for clinical insights.
-        </p>
-        <div class="project-tools">
-            <span class="project-tool">Python</span>
-            <span class="project-tool">Scikit-Learn</span>
-            <span class="project-tool">Pandas</span>
-        </div>
-        <a href="https://github.com/Vamshi782/diabetes-prediction-ml-project" class="project-link">
-            View Project <i class="fas fa-arrow-right"></i>
-        </a>
-    </div>
-        </div>
              <div class="project-item">
                     <div class="project-image">
                         <img src="https://i.postimg.cc/8Cms8Bsj/school2.png" alt="School Absenteeism Insights">
@@ -1966,7 +2012,7 @@ I’m particularly passionate about predictive modeling, data visualization, and
                         <div class="project-category">
                             <i class="fas fa-hospital"></i> Healthcare
                         </div>
-                        <h3 class="project-title">Hospital Workflow Optimization </h3>
+                        <h3 class="project-title">Hospital Workflow Optimization Dashboard</h3>
                         <p class="project-description">
                             Analyzed 10,000+ hospital records to reduce patient wait times by 20% and optimize bed usage capacity. Created visual reports that supported data-driven decisions for hospital operations.
                         </p>
@@ -2025,260 +2071,6 @@ I’m particularly passionate about predictive modeling, data visualization, and
             </div>
         </div>
     </section>
-
-<section id="certifications" class="section certifications-section">
-    <div class="container">
-        <div class="section-title">
-            <h2>📜 Certifications & Badges</h2>
-            <p>Professional certifications demonstrating expertise in data analytics and technology</p>
-        </div>
-        <div class="certifications-container">
-            <div class="certification-item" data-aos="fade-up">
-                <div class="certification-badge">
-                    <img src="https://i.postimg.cc/k4qrcJLG/Google-G-logo-svg.png" alt="Google Data Analytics - Professional Certificate">
-                </div>
-                <div class="certification-content">
-                    <h3 class="certification-title">Google Data Analytics - Professional</h3>
-                    <p class="certification-description">Comprehensive 8-course industry-recognized certification from Google</p>
-                    <a href="https://www.credly.com/badges/85dd3941-be71-4400-8655-26cbba2163a4/public_url" target="_blank" class="certification-link">
-                        View Certificate <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="certification-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="certification-badge">
-                    <img src="https://i.postimg.cc/2j9Jq7jV/tata.png" alt="TCS Data Visualization Certificate">
-                </div>
-                <div class="certification-content">
-                    <h3 class="certification-title">TCS Data Visualization</h3>
-                    <p class="certification-description">Advanced certificate in data storytelling and dashboard design</p>
-                    <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/MyXvBcppsW2FkNYCX_ifobHAoMjQs9s6bKS_PDoAWo2ajFhMyT556_1735593837150_completion_certificate.pdf" target="_blank" class="certification-link">
-                        View Certificate <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="certification-item" data-aos="fade-up" data-aos-delay="300">
-    <div class="certification-badge">
-        <img src="https://i.postimg.cc/fb6P2wFm/DATA-VIZ.jpg" alt="Data Visualization and Storytelling Basics Badge">
-    </div>
-    <div class="certification-content">
-        <h3 class="certification-title">Data Visualization - Storytelling</h3>
-        <p class="certification-description">Specialized training in advanced data visualization techniques and storytelling</p>
-        <a href="https://api.badgr.io/public/assertions/520kRoTNSg2jWNLeMpmSsA" target="_blank" class="certification-link">
-            View Credential <i class="fas fa-external-link-alt"></i>
-        </a>
-    </div>
-</div>
-
-<div class="certification-item" data-aos="fade-up" data-aos-delay="400">
-    <div class="certification-badge">
-        <img src="https://i.postimg.cc/76jqN81W/channels4-profile.jpg" alt="Google Data Analytics Capstone Certificate">
-    </div>
-    <div class="certification-content">
-        <h3 class="certification-title">Google Data Analytics Capstone</h3>
-        <p class="certification-description">Comprehensive case study demonstrating practical data analysis skills</p>
-        <a href="https://www.coursera.org/account/accomplishments/verify/UEMIQWIJZW8I" target="_blank" class="certification-link">
-            View Certificate <i class="fas fa-external-link-alt"></i>
-        </a>
-    </div>
-</div>
-
-<div class="certification-item" data-aos="fade-up" data-aos-delay="500">
-    <div class="certification-badge">
-        <img src="https://i.postimg.cc/15rZ8NdT/python.jpg" alt="Analytics with Python Badge">
-    </div>
-    <div class="certification-content">
-        <h3 class="certification-title">Advanced Python for Analytics</h3>
-        <p class="certification-description">Specialized training in Python programming for data analysis and visualization</p>
-        <a href="https://api.badgr.io/public/assertions/3jm_Wl8KSHySaan6lhYEqw" target="_blank" class="certification-link">
-            View Credential <i class="fas fa-external-link-alt"></i>
-        </a>
-    </div>
-</div>
-        <div class="certification-item" data-aos="fade-up" data-aos-delay="200">
-                <div class="certification-badge">
-                    <img src="https://i.postimg.cc/d3MKyRwM/aws.png" alt="AWS Solutions Architect Associate">
-                </div>
-                <div class="certification-content">
-                    <h3 class="certification-title">AWS Solutions Architect</h3>
-                    <p class="certification-description">Associate-level certification in cloud computing and architecture</p>
-            
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Add this CSS in the <style> section of your HTML -->
-<style>
-    /* Certifications Section Styles */
-    .certifications-section {
-        background: linear-gradient(135deg, #f5f8ff 0%, #e9f2ff 100%);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .certifications-section::before {
-        content: '';
-        position: absolute;
-        top: -100px;
-        left: -100px;
-        width: 300px;
-        height: 300px;
-        border-radius: 50%;
-        background: var(--gradient-primary);
-        opacity: 0.05;
-    }
-
-    .certifications-section::after {
-        content: '';
-        position: absolute;
-        bottom: -100px;
-        right: -100px;
-        width: 300px;
-        height: 300px;
-        border-radius: 50%;
-        background: var(--gradient-primary);
-        opacity: 0.05;
-    }
-
-    .certifications-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 40px;
-        position: relative;
-        z-index: 2;
-    }
-
-    .certification-item {
-        background-color: white;
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        padding: 30px;
-        box-shadow: var(--box-shadow);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .certification-item:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    }
-
-    .certification-badge {
-        flex: 0 0 120px;
-        margin-right: 30px;
-    }
-
-    .certification-badge img {
-        width: 120px;
-        height: 120px;
-        object-fit: contain;
-        border-radius: 12px;
-        transition: transform 0.3s ease;
-    }
-
-    .certification-item:hover .certification-badge img {
-        transform: scale(1.1);
-    }
-
-    .certification-content {
-        flex: 1;
-    }
-
-    .certification-title {
-        font-size: 22px;
-        font-weight: 700;
-        color: var(--dark-color);
-        margin-bottom: 15px;
-        transition: color 0.3s ease;
-    }
-
-    .certification-item:hover .certification-title {
-        color: var(--primary-color);
-    }
-
-    .certification-description {
-        font-size: 16px;
-        color: var(--text-color);
-        margin-bottom: 20px;
-        line-height: 1.6;
-    }
-
-    .certification-link {
-        display: inline-flex;
-        align-items: center;
-        color: var(--primary-color);
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        position: relative;
-        padding-bottom: 5px;
-    }
-
-    .certification-link::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--primary-color);
-        transition: all 0.3s ease;
-    }
-
-    .certification-link i {
-        margin-left: 8px;
-        transition: transform 0.3s ease;
-    }
-
-    .certification-link:hover {
-        color: var(--secondary-color);
-    }
-
-    .certification-link:hover::after {
-        width: 100%;
-    }
-
-    .certification-link:hover i {
-        transform: translateX(8px);
-    }
-
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
-        .certifications-container {
-            grid-template-columns: 1fr;
-        }
-
-        .certification-item {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .certification-badge {
-            margin-right: 0;
-            margin-bottom: 20px;
-        }
-    }
-</style>
-
-<!-- Update the navigation menu to include the new section -->
-<script>
-    // Add this to your existing script section
-    document.addEventListener('DOMContentLoaded', function() {
-        // Add a menu item for Certifications in the navigation
-        const navMenu = document.querySelector('.nav-menu');
-        const certificationsLink = document.createElement('li');
-        certificationsLink.classList.add('nav-item');
-        certificationsLink.innerHTML = '<a href="#certifications" class="nav-link">Certifications</a>';
-        navMenu.insertBefore(certificationsLink, navMenu.querySelector('[href="#contact"]'));
-    });
-</script>
 
     <!-- Contact Section -->
     <section id="contact" class="section contact-section">
