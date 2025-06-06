@@ -337,40 +337,26 @@
             color: #f57c00;
         }
 
-        /* Stats Section */
-        .stats-section {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+        /* Presentation Image Section */
+        .presentation-section {
+            padding: 40px 0;
             text-align: center;
         }
 
-        .stat-item {
-            color: white;
+        .presentation-image {
+            max-width: 800px;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            margin: 0 auto;
+            display: block;
         }
 
-        .stat-number {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            font-size: 16px;
-            opacity: 0.9;
+        .presentation-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
         }
 
         /* Progress Section */
@@ -463,8 +449,8 @@
                 margin-bottom: 20px;
             }
 
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .presentation-image {
+                max-width: 95%;
             }
         }
 
@@ -513,7 +499,7 @@
             </p>
             <div class="university-badge">
                 <i class="fas fa-university"></i>
-                Northeastern University, Portland ME
+                Northeastern University, Portland, ME
             </div>
         </div>
 
@@ -624,6 +610,8 @@
                     <div class="course-highlights">
                         <span class="highlight-tag">Tableau</span>
                         <span class="highlight-tag">Data Storytelling</span>
+                        <span class="highlight-tag">Python</span>
+                        <span class="highlight-tag">Power BI</span>
                         <span class="highlight-tag">Netflix Analysis</span>
                         <span class="highlight-tag">Team Collaboration</span>
                     </div>
@@ -671,7 +659,7 @@
                         <span class="highlight-tag">Healthcare ML</span>
                         <span class="highlight-tag">Predictive Modeling</span>
                     </div>
-                    <a href="https://github.com/Vamshi782/diabetes-prediction-ml-project" target="_blank" class="course-link">
+                    <a href="https://github.com/Vamshi782/diabetes-prediction-ml-project" target="https://github.com/Vamshi782/diabetes-prediction-ml-project" class="course-link">
                         View GitHub Project <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
@@ -722,12 +710,16 @@
             </div>
         </div>
 
+        <div class="presentation-section">
+            <img src="https://i.postimg.cc/26ZhfX52/Whats-App-Image-2025-03-28-at-18-52-22-51c733fb.jpg" alt="Academic Presentation" class="presentation-image">
+        </div>
+
         <div class="progress-section">
             <h2 class="progress-title">Program Progress</h2>
             <div class="progress-bar">
                 <div class="progress-fill"></div>
             </div>
-            <p class="progress-text">75% Complete - Expected Graduation: June 2026</p>
+            <p class="progress-text">70% Complete - Expected Graduation: June 2026</p>
         </div>
     </div>
 
@@ -752,38 +744,6 @@
                 this.style.transform = 'translateY(0) scale(1)';
             });
         });
-
-        // Animate stats on scroll
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumbers = entry.target.querySelectorAll('.stat-number');
-                    statNumbers.forEach(stat => {
-                        const finalValue = stat.textContent;
-                        let currentValue = 0;
-                        const increment = finalValue.includes('.') ? 0.1 : 1;
-                        const timer = setInterval(() => {
-                            currentValue += increment;
-                            if (currentValue >= parseFloat(finalValue)) {
-                                stat.textContent = finalValue;
-                                clearInterval(timer);
-                            } else {
-                                stat.textContent = finalValue.includes('.') ? 
-                                    currentValue.toFixed(1) : Math.floor(currentValue);
-                            }
-                        }, 50);
-                    });
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        observer.observe(document.querySelector('.stats-section'));
     </script>
 </body>
 </html>
