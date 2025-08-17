@@ -281,22 +281,22 @@
 
         /* Enhanced Course Grid */
         .courses-section {
-            padding: 80px 0;
+            padding: 60px 0;
             position: relative;
         }
 
         .courses-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-            gap: 35px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
 
         .course-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            border-radius: 25px;
-            padding: 35px;
+            border-radius: 20px;
+            padding: 25px;
             box-shadow: var(--box-shadow);
             transition: var(--transition);
             position: relative;
@@ -311,8 +311,8 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 8px;
-            border-radius: 25px 25px 0 0;
+            height: 6px;
+            border-radius: 20px 20px 0 0;
             transition: var(--transition);
         }
 
@@ -328,7 +328,7 @@
         .course-card:nth-child(10)::before { background: var(--gradient-ai); }
 
         .course-card:hover {
-            transform: translateY(-15px) scale(1.02);
+            transform: translateY(-8px) scale(1.01);
             box-shadow: var(--box-shadow-hover);
         }
 
@@ -340,22 +340,22 @@
         .course-header {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 25px;
+            margin-bottom: 18px;
         }
 
         .course-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 18px;
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 22px;
             color: white;
-            margin-right: 25px;
+            margin-right: 18px;
             flex-shrink: 0;
             transition: var(--transition);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
         }
 
         .course-card:nth-child(1) .course-icon { background: var(--gradient-primary); }
@@ -370,8 +370,8 @@
         .course-card:nth-child(10) .course-icon { background: var(--gradient-ai); }
 
         .course-card:hover .course-icon {
-            transform: scale(1.15) rotate(12deg);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            transform: scale(1.1) rotate(8deg);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
         }
 
         .course-info {
@@ -380,47 +380,47 @@
 
         .course-number {
             display: inline-block;
-            padding: 6px 16px;
+            padding: 4px 12px;
             background: rgba(45, 70, 185, 0.12);
             color: var(--primary-color);
-            border-radius: 25px;
-            font-size: 13px;
+            border-radius: 20px;
+            font-size: 11px;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             font-family: 'JetBrains Mono', monospace;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .course-title {
-            font-size: 24px;
+            font-size: 19px;
             font-weight: 700;
             color: var(--dark-color);
-            margin-bottom: 18px;
+            margin-bottom: 12px;
             line-height: 1.3;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.3px;
         }
 
         .course-description {
             color: var(--text-color);
-            line-height: 1.8;
-            margin-bottom: 25px;
-            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 18px;
+            font-size: 13px;
         }
 
         .course-highlights {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 25px;
+            gap: 6px;
+            margin-bottom: 15px;
         }
 
         .highlight-tag {
-            padding: 8px 16px;
+            padding: 6px 12px;
             background: rgba(76, 224, 210, 0.12);
             color: var(--primary-color);
-            border-radius: 20px;
-            font-size: 12px;
+            border-radius: 15px;
+            font-size: 10px;
             font-weight: 600;
             transition: var(--transition);
             border: 1px solid rgba(76, 224, 210, 0.2);
@@ -438,8 +438,8 @@
             text-decoration: none;
             font-weight: 700;
             transition: var(--transition);
-            padding: 10px 0;
-            font-size: 15px;
+            padding: 8px 0;
+            font-size: 13px;
         }
 
         .course-link:hover {
@@ -458,11 +458,11 @@
 
         .status-badge {
             position: absolute;
-            top: 25px;
-            right: 25px;
-            padding: 8px 18px;
-            border-radius: 25px;
-            font-size: 11px;
+            top: 18px;
+            right: 18px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 9px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -483,7 +483,7 @@
 
         /* Enhanced Presentation Section */
         .presentation-section {
-            padding: 60px 0;
+            padding: 40px 0;
             text-align: center;
         }
 
@@ -493,18 +493,18 @@
         }
 
         .presentation-image {
-            max-width: 900px;
+            max-width: 600px;
             width: 100%;
             height: auto;
-            border-radius: 25px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
             transition: var(--transition);
-            border: 3px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
         .presentation-image:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3);
         }
 
         /* Enhanced Progress Section */
@@ -724,7 +724,7 @@
     <div class="container">
         <div class="profile-container">
             <div class="profile-picture">
-                <img src="https://i.postimg.cc/XNdVmmJJ/vamshi-beach-image.jpg" alt="Vamshi Krishna Korutla" class="profile-img">
+                <div class="profile-img">VK</div>
             </div>
         </div>
 
